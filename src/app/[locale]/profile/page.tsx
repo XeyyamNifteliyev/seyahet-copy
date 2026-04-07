@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import {
-  LayoutDashboard, FileText, Users, Video, Map, Settings, LogOut, User, Menu, X
+  LayoutDashboard, FileText, Users, Video, Map, Settings, LogOut, User, Menu, X, MessageCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import { DashboardOverview } from '@/components/profile/dashboard-overview';
@@ -134,6 +134,15 @@ export default function ProfilePage() {
               </button>
             ))}
           </nav>
+
+          {/* Chat link */}
+          <Link
+            href={`/${locale}/chat`}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:bg-dark/30 hover:text-white transition-colors mt-2"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Mesajlar
+          </Link>
 
           {/* Logout */}
           <button

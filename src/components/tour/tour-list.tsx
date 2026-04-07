@@ -28,8 +28,6 @@ export default function ToursPage() {
   const [filters, setFilters] = useState({
     region: '',
     tourType: '',
-    priceMin: '',
-    priceMax: '',
     transportation: false,
     rating: '',
     search: '',
@@ -44,8 +42,6 @@ export default function ToursPage() {
     const params = new URLSearchParams();
     if (filters.region) params.set('region', filters.region);
     if (filters.tourType) params.set('tourType', filters.tourType);
-    if (filters.priceMin) params.set('priceMin', filters.priceMin);
-    if (filters.priceMax) params.set('priceMax', filters.priceMax);
     if (filters.transportation) params.set('transportation', 'true');
     if (filters.rating) params.set('rating', filters.rating);
     if (filters.search) params.set('search', filters.search);
@@ -110,22 +106,6 @@ export default function ToursPage() {
                 <option key={type} value={type}>{getTourTypeLabel(type)}</option>
               ))}
             </select>
-            <div className="flex gap-2">
-              <input
-                type="number"
-                value={filters.priceMin}
-                onChange={e => setFilters(prev => ({ ...prev, priceMin: e.target.value }))}
-                placeholder={t('minPrice')}
-                className="flex-1 bg-slate-700 border border-slate-600 rounded-xl px-3 py-2.5 text-white placeholder-slate-400"
-              />
-              <input
-                type="number"
-                value={filters.priceMax}
-                onChange={e => setFilters(prev => ({ ...prev, priceMax: e.target.value }))}
-                placeholder={t('maxPrice')}
-                className="flex-1 bg-slate-700 border border-slate-600 rounded-xl px-3 py-2.5 text-white placeholder-slate-400"
-              />
-            </div>
           </div>
           <div className="flex items-center gap-4 mt-3">
             <label className="flex items-center gap-2 text-slate-300 cursor-pointer">

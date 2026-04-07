@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { LanguageSwitcher } from './language-switcher';
 import { MobileMenu } from './mobile-menu';
-import { Plane, User } from 'lucide-react';
+import { Plane, User, MessageCircle } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
 export function Header() {
@@ -38,6 +38,10 @@ export function Header() {
     { href: `/${locale}/blog`, label: t('blog') },
   ];
 
+  const isLoggedInNavLinks = isLoggedIn
+    ? [...navLinks, { href: `/${locale}/chat`, label: t('chat') }]
+    : navLinks;
+
   return (
     <header className="sticky top-0 z-50 bg-dark/80 backdrop-blur-md border-b border-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +52,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+            {isLoggedInNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -68,7 +72,7 @@ export function Header() {
               <User className="w-4 h-4" />
               <span>{isLoggedIn ? t('profile') : t('login')}</span>
             </Link>
-            <MobileMenu navLinks={navLinks} />
+            <MobileMenu navLinks={isLoggedInNavLinks} />
           </div>
         </div>
       </div>

@@ -1,9 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { FlightSearch } from '@/components/search/flight-search';
 import { GlobeHero } from '@/components/home/globe-hero';
-import { Globe, MapPin, Star } from 'lucide-react';
 
 const popularDestinations = [
   { slug: 'turkey', name: 'Türkiyə', flag: '🇹🇷', price: '199 AZN' },
@@ -35,11 +33,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Search Section */}
-      <section className="max-w-5xl mx-auto px-4 -mt-8">
-        <FlightSearch />
       </section>
 
       {/* Popular Destinations */}
