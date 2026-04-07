@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0EA5E9;
+  --secondary: #F59E0B;
+  --accent: #10B981;
+  --dark: #0F172A;
+  --surface: #1E293B;
+  --az-flag: #0092BC;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-dark: var(--dark);
+  --color-surface: var(--surface);
+  --color-flag-az: var(--az-flag);
+}
+
+body {
+  background: var(--dark);
+  color: #E2E8F0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
