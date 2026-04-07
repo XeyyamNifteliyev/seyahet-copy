@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { FlightSearch } from '@/components/search/flight-search';
+import { GlobeHero } from '@/components/home/globe-hero';
 import { Globe, MapPin, Star } from 'lucide-react';
 
 const popularDestinations = [
@@ -17,12 +18,22 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {t('heroTitle')}
-          </h1>
-          <p className="text-gray-400 text-lg mb-8">{t('heroSubtitle')}</p>
+      <section className="relative py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            {/* Left: Hero Text */}
+            <div className="flex-1 text-center lg:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {t('heroTitle')}
+              </h1>
+              <p className="text-gray-400 text-lg mb-8">{t('heroSubtitle')}</p>
+            </div>
+
+            {/* Right: 3D Globe */}
+            <div className="flex-shrink-0 w-[280px] h-[280px] hidden md:block">
+              <GlobeHero />
+            </div>
+          </div>
         </div>
       </section>
 
